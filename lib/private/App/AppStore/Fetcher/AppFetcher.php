@@ -144,7 +144,8 @@ class AppFetcher extends Fetcher {
 	}
 
 	private function setEndpoint() {
-		$this->endpointUrl = 'https://apps.nextcloud.com/api/v1/apps.json';
+		$endpoint = $this->config->getSystemValue('appstoreurl', 'https://apps.nextcloud.com/api/v1');
+		$this->endpointUrl = $endpoint . '/apps.json';
 	}
 
 	/**

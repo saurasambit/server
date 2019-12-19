@@ -68,7 +68,7 @@ class AppFetcher extends Fetcher {
 		);
 
 		$this->fileName = 'apps.json';
-		$this->setEndpoint();
+		$this->endpointUrl = $this->getEndpoint($this->fileName);
 		$this->compareVersion = $compareVersion;
 		$this->ignoreMaxVersion = true;
 	}
@@ -141,11 +141,6 @@ class AppFetcher extends Fetcher {
 
 		$response['data'] = array_values(array_filter($response['data']));
 		return $response;
-	}
-
-	private function setEndpoint() {
-		$endpoint = $this->config->getSystemValue('appstoreurl', 'https://apps.nextcloud.com/api/v1');
-		$this->endpointUrl = $endpoint . '/apps.json';
 	}
 
 	/**

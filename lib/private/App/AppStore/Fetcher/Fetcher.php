@@ -219,4 +219,8 @@ abstract class Fetcher {
 	public function setChannel(string $channel) {
 		$this->channel = $channel;
 	}
+
+	protected function getEndpoint(string $fileName): string {
+		return $this->config->getSystemValue('appstoreurl', 'https://apps.nextcloud.com/api/v1') . '/' . $fileName;
+	}
 }

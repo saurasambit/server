@@ -68,7 +68,6 @@ class AppFetcher extends Fetcher {
 		);
 
 		$this->fileName = 'apps.json';
-		$this->endpointUrl = $this->getEndpoint($this->fileName);
 		$this->compareVersion = $compareVersion;
 		$this->ignoreMaxVersion = true;
 	}

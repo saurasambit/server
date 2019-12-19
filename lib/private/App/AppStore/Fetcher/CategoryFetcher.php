@@ -53,6 +53,5 @@ class CategoryFetcher extends Fetcher {
 			$logger
 		);
 		$this->fileName = 'categories.json';
-		$this->endpointUrl = $this->getEndpoint($this->fileName);
 	}
 }

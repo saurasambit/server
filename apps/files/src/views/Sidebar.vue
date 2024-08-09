@@ -30,6 +30,7 @@
 			<div class="sidebar__description">
 				<SystemTags v-if="isSystemTagsEnabled && showTagsDefault"
 					v-show="showTags"
+					:disabled="!fileInfo?.canEdit()"
 					:file-id="fileInfo.id"
 					@has-tags="value => showTags = value" />
 				<LegacyView v-for="view in views"
@@ -108,7 +109,7 @@ import FileInfo from '../services/FileInfo.js'
 import LegacyView from '../components/LegacyView.vue'
 import SidebarTab from '../components/SidebarTab.vue'
 import SystemTags from '../../../systemtags/src/components/SystemTags.vue'
-import logger from '../logger.js'
+import logger from '../logger.ts'
 
 export default {
 	name: 'Sidebar',

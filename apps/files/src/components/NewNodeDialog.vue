@@ -118,15 +118,15 @@ function submit() {
 
 // Reset local name on props change
 watch(() => props.defaultName, () => {
-	localDefaultName.value = getUniqueName(props.defaultName, props.otherNames)
+	localDefaultName.value = getUniqueName(props.defaultName, props.otherNames).trim()
 })
 
 // Validate the local name
 watchEffect(() => {
-	if (props.otherNames.includes(localDefaultName.value)) {
+	if (props.otherNames.includes(localDefaultName.value.trim())) {
 		validity.value = t('files', 'This name is already in use.')
 	} else {
-		validity.value = getFilenameValidity(localDefaultName.value)
+		validity.value = getFilenameValidity(localDefaultName.value.trim())
 	}
 	const input = nameInput.value?.$el.querySelector('input')
 	if (input) {
@@ -144,7 +144,7 @@ watch(() => props.open, () => {
 
 onMounted(() => {
 	// on mounted lets use the unique name
-	localDefaultName.value = getUniqueName(localDefaultName.value, props.otherNames)
+	localDefaultName.value = getUniqueName(localDefaultName.value, props.otherNames).trim()
 	nextTick(() => focusInput())
 })
 </script>
@@ -152,6 +152,6 @@ onMounted(() => {
 <style scoped>
 .new-node-dialog__form {
 	/* Ensure the dialog does not jump when there is a validity error */
-	min-height: calc(3 * var(--default-clickable-area));
+	min-height: calc(2 * var(--default-clickable-area));
 }
 </style>

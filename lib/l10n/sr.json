@@ -17,7 +17,6 @@
     "%1$s, %2$s and %3$s" : "%1$s, %2$s и %3$s",
     "%1$s, %2$s, %3$s and %4$s" : "%1$s, %2$s, %3$s и %4$s",
     "%1$s, %2$s, %3$s, %4$s and %5$s" : "%1$s, %2$s, %3$s, %4$s и %5$s",
-    "Education Edition" : "Образовно издање",
     "Enterprise bundle" : "Комплет за предузећа",
     "Groupware bundle" : "Комплет за радне тимове",
     "Hub bundle" : "Чвориште пакета",
@@ -252,7 +251,6 @@
     "Your data directory must be an absolute path." : "Ваш директоријум са подацима мора бити апсолутна путања.",
     "Check the value of \"datadirectory\" in your configuration." : "Проверите вредност „datadirectory” у својој конфигурацији.",
     "Your data directory is invalid." : "Ваш директоријум са подацима је неисправан.",
-    "Ensure there is a file called \".ocdata\" in the root of the data directory." : "Уверите се да фајл \".ocdata\" постоји у корену директоријума са подацима.",
     "Action \"%s\" not supported or implemented." : "Радња \"%s\" није подржана или имплементирана.",
     "Authentication failed, wrong token or provider ID given" : "Неуспела провера идентитета, добијен погрешан токен или ID провајдера",
     "Parameters missing in order to complete the request. Missing Parameters: \"%s\"" : "Недостају параметри да би се довршио захтев. Недостајући параметри: \"%s\"",
@@ -343,6 +341,7 @@
     "Summarizes text by reducing its length without losing key information." : "Резимира текст тако што га скраћује без губитка кључних информација.",
     "Extracts topics from a text and outputs them separated by commas." : "Издваја теме из текста и исписује их раздвојене запетама.",
     "404" : "404",
+    "Education Edition" : "Образовно издање",
     "Logged in user must be an admin, a sub admin or gotten special right to access this setting" : "Пријављени корисник мора бити админ, под админ или да поседује специјално право да приступи овом подешавању",
     "Logged in user must be an admin or sub admin" : "Пријављени корисник мора бити администратор или подадминистратор",
     "Logged in user must be an admin" : "Пријављени корисник мора бити администратор",
@@ -367,6 +366,7 @@
     "PostgreSQL >= 9 required." : "Потребан је PostgreSQL >= 9.",
     "Please upgrade your database version." : "Молимо вас да ажурирате верзију базе података.",
     "Your data directory is readable by other users." : "Ваш директоријум са подацима могу да читају остали корисници.",
-    "Please change the permissions to 0770 so that the directory cannot be listed by other users." : "Промените дозволе у 0770 како директоријуми не би могли бити излистани од стране других корисника."
+    "Please change the permissions to 0770 so that the directory cannot be listed by other users." : "Промените дозволе у 0770 како директоријуми не би могли бити излистани од стране других корисника.",
+    "Ensure there is a file called \".ocdata\" in the root of the data directory." : "Уверите се да фајл \".ocdata\" постоји у корену директоријума са подацима."
 },"pluralForm" :"nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);"
 }

@@ -392,6 +392,9 @@ class Manager implements IManager {
 				}
 
 				public function process(?string $userId, array $input, callable $reportProgress): array {
+					if ($this->provider instanceof \OCP\SpeechToText\ISpeechToTextProviderWithUserId) {
+						$this->provider->setUserId($userId);
+					}
 					try {
 						$result = $this->provider->transcribeFile($input['input']);
 					} catch (\RuntimeException $e) {
@@ -483,6 +486,7 @@ class Manager implements IManager {
 			\OCP\TaskProcessing\TaskTypes\TextToTextSimplification::ID => \OCP\Server::get(\OCP\TaskProcessing\TaskTypes\TextToTextSimplification::class),
 			\OCP\TaskProcessing\TaskTypes\TextToTextChat::ID => \OCP\Server::get(\OCP\TaskProcessing\TaskTypes\TextToTextChat::class),
 			\OCP\TaskProcessing\TaskTypes\TextToTextTranslate::ID => \OCP\Server::get(\OCP\TaskProcessing\TaskTypes\TextToTextTranslate::class),
+			\OCP\TaskProcessing\TaskTypes\TextToTextReformulation::ID => \OCP\Server::get(\OCP\TaskProcessing\TaskTypes\TextToTextReformulation::class),
 			\OCP\TaskProcessing\TaskTypes\TextToImage::ID => \OCP\Server::get(\OCP\TaskProcessing\TaskTypes\TextToImage::class),
 			\OCP\TaskProcessing\TaskTypes\AudioToText::ID => \OCP\Server::get(\OCP\TaskProcessing\TaskTypes\AudioToText::class),
 			\OCP\TaskProcessing\TaskTypes\ContextWrite::ID => \OCP\Server::get(\OCP\TaskProcessing\TaskTypes\ContextWrite::class),
@@ -678,20 +682,24 @@ class Manager implements IManager {
 					continue;
 				}
 				$taskType = $taskTypes[$provider->getTaskTypeId()];
-				$availableTaskTypes[$provider->getTaskTypeId()] = [
-					'name' => $taskType->getName(),
-					'description' => $taskType->getDescription(),
-					'optionalInputShape' => $provider->getOptionalInputShape(),
-					'inputShapeEnumValues' => $provider->getInputShapeEnumValues(),
-					'inputShapeDefaults' => $provider->getInputShapeDefaults(),
-					'inputShape' => $taskType->getInputShape(),
-					'optionalInputShapeEnumValues' => $provider->getOptionalInputShapeEnumValues(),
-					'optionalInputShapeDefaults' => $provider->getOptionalInputShapeDefaults(),
-					'outputShape' => $taskType->getOutputShape(),
-					'outputShapeEnumValues' => $provider->getOutputShapeEnumValues(),
-					'optionalOutputShape' => $provider->getOptionalOutputShape(),
-					'optionalOutputShapeEnumValues' => $provider->getOptionalOutputShapeEnumValues(),
-				];
+				try {
+					$availableTaskTypes[$provider->getTaskTypeId()] = [
+						'name' => $taskType->getName(),
+						'description' => $taskType->getDescription(),
+						'optionalInputShape' => $provider->getOptionalInputShape(),
+						'inputShapeEnumValues' => $provider->getInputShapeEnumValues(),
+						'inputShapeDefaults' => $provider->getInputShapeDefaults(),
+						'inputShape' => $taskType->getInputShape(),
+						'optionalInputShapeEnumValues' => $provider->getOptionalInputShapeEnumValues(),
+						'optionalInputShapeDefaults' => $provider->getOptionalInputShapeDefaults(),
+						'outputShape' => $taskType->getOutputShape(),
+						'outputShapeEnumValues' => $provider->getOutputShapeEnumValues(),
+						'optionalOutputShape' => $provider->getOptionalOutputShape(),
+						'optionalOutputShapeEnumValues' => $provider->getOptionalOutputShapeEnumValues(),
+					];
+				} catch (\Throwable $e) {
+					$this->logger->error('Failed to set up TaskProcessing provider ' . $provider::class, ['exception' => $e]);
+				}
 			}
 
 			$this->availableTaskTypes = $availableTaskTypes;

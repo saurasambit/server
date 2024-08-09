@@ -493,6 +493,8 @@ $CONFIG = [
 
 /**
  * Enable SMTP class debugging.
+ * NOTE: ``loglevel`` will likely need to be adjusted too. See docs: 
+ *   https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/email_configuration.html#enabling-debug-mode
  *
  * Defaults to ``false``
  */
@@ -1146,6 +1148,7 @@ $CONFIG = [
  * - Android client: ``https://play.google.com/store/apps/details?id=com.nextcloud.client``
  * - iOS client: ``https://itunes.apple.com/us/app/nextcloud/id1125420102?mt=8``
  * - iOS client app id: ``1125420102``
+ * - F-Droid client: ``https://f-droid.org/packages/com.nextcloud.client/``
  */
 'customclient_desktop' =>
 	'https://nextcloud.com/install/#install-clients',
@@ -1155,6 +1158,8 @@ $CONFIG = [
 	'https://itunes.apple.com/us/app/nextcloud/id1125420102?mt=8',
 'customclient_ios_appid' =>
 		'1125420102',
+'customclient_fdroid' =>
+	'https://f-droid.org/packages/com.nextcloud.client/',
 /**
  * Apps
  *
@@ -1372,6 +1377,15 @@ $CONFIG = [
 	'OC\Preview\TXT',
 	'OC\Preview\XBitmap',
 ],
+
+/**
+ * Maximum file size for metadata generation.
+ * If a file exceeds this size, metadata generation will be skipped.
+ * Note: memory equivalent to this size will be used for metadata generation.
+ *
+ * Default: 256 megabytes.
+ */
+'metadata_max_filesize' => 256,
 
 /**
  * LDAP

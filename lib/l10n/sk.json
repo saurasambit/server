@@ -17,7 +17,6 @@
     "%1$s, %2$s and %3$s" : "%1$s, %2$s a %3$s",
     "%1$s, %2$s, %3$s and %4$s" : "%1$s, %2$s, %3$s a %4$s",
     "%1$s, %2$s, %3$s, %4$s and %5$s" : "%1$s, %2$s, %3$s, %4$s a %5$s",
-    "Education Edition" : "Edícia pre výuku",
     "Enterprise bundle" : "Enterprise balíček",
     "Groupware bundle" : "Balíček groupware",
     "Hub bundle" : "Sada pre centrum aktivity (hub)",
@@ -248,7 +247,6 @@
     "Your data directory must be an absolute path." : "Priečinok s dátami musí byť zadaný ako absolútna cesta.",
     "Check the value of \"datadirectory\" in your configuration." : "Skontrolujte hodnotu \"datadirectory\" vo vašej konfigurácii.",
     "Your data directory is invalid." : "Priečinok pre dáta je neplatný.",
-    "Ensure there is a file called \".ocdata\" in the root of the data directory." : "Uistite sa, že v koreňovom adresári sa nachádza súbor s názvom \".ocdata\".",
     "Action \"%s\" not supported or implemented." : "Akcia \"%s\" nie je podporovaná alebo implementovaná.",
     "Authentication failed, wrong token or provider ID given" : "Autentifikácia zlyhala, bol zadaný neplatný token alebo ID poskytovateľa",
     "Parameters missing in order to complete the request. Missing Parameters: \"%s\"" : "Pre dokončenie požiadavky chýbajú parametre.  Chýbajúce parametre: \"%s\"",
@@ -273,6 +271,7 @@
     "Summarizes text by reducing its length without losing key information." : "Zhrňuje text tým, že znižuje jeho dĺžku bez straty kľúčových informácií.",
     "Extracts topics from a text and outputs them separated by commas." : "Extrahuje témy z textu a vypisuje ich oddelené čiarkami.",
     "404" : "404",
+    "Education Edition" : "Edícia pre výuku",
     "Logged in user must be an admin, a sub admin or gotten special right to access this setting" : "Prihlásený používateľ musí byť správcom, podadministrátorom alebo musí mať špeciálne právo na prístup k tomuto nastaveniu",
     "Logged in user must be an admin or sub admin" : "Prihlásený používateľ musí byť správcom alebo správcom pre čiastkovú oblasť.",
     "Logged in user must be an admin" : "Prihlásený používateľ musí byť správca",
@@ -297,6 +296,7 @@
     "PostgreSQL >= 9 required." : "Vyžadované PostgreSQL >= 9.",
     "Please upgrade your database version." : "Prosím, aktualizujte verziu svojej databázy.",
     "Your data directory is readable by other users." : "Váš priečinok s dátami je prístupný na čítanie ostatným užívateľom.",
-    "Please change the permissions to 0770 so that the directory cannot be listed by other users." : "Prosím, zmeňte oprávnenia na 0770, aby tento priečinok nemohli ostatní používatelia otvoriť."
+    "Please change the permissions to 0770 so that the directory cannot be listed by other users." : "Prosím, zmeňte oprávnenia na 0770, aby tento priečinok nemohli ostatní používatelia otvoriť.",
+    "Ensure there is a file called \".ocdata\" in the root of the data directory." : "Uistite sa, že v koreňovom adresári sa nachádza súbor s názvom \".ocdata\"."
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);"
 }
